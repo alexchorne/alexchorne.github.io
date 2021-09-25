@@ -1,6 +1,6 @@
 ## what tomas would like to get done this afternoon
 
-* [x] i
-* [ ] d
-* [ ] f
-* [ ] k
+* [ ] Read Spengler
+* [ ] Do at least one problem set of LinAlg
+* [ ] idk hopefully at least those two
+* [ ] ...
