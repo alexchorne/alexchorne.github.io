@@ -1,0 +1,180 @@
+%---------DO NOT EDIT THIS INDENTED SECTION, EXCEPT TO ENTER YOUR NAME
+	% Preamble
+	\documentclass[11pt,reqno,oneside,a4paper]{article}
+	\usepackage[a4paper,includeheadfoot,left=35mm,right=35mm,top=00mm,bottom=30mm,headheight=40mm]{geometry} %sets up the margins
+	\usepackage{amssymb,amsmath,amsthm}
+	\usepackage{xcolor,graphicx}
+	\graphicspath{ {./capresults/} }
+	\usepackage{verbatim}
+	\usepackage{hyperref}
+	\usepackage{titling}
+	\usepackage{fancyhdr}
+	\usepackage{natbib}
+	\usepackage{tikz}
+	\usepackage{booktabs}
+	\usepackage{colortbl}
+	\usepackage{rotating}
+	\usepackage{threeparttable}
+	\usepackage{longtable}
+	\usepackage[nottoc]{tocbibind}
+	\usepackage{setspace}
+	\usepackage{pdfpages}
+	\pagestyle{fancy} \lhead{{\theauthor}} \chead{} \rhead{} \lfoot{} \cfoot{\thepage} \rfoot{}
+	%---The following code defines the title, author, and date of the document.
+	\title{US Influence via Regime Change on Long-Run Inequality}
+	\author{Alexander Christopher Horne}
+	\date{\today}   % Using \today automatically updates to the document's build date
+%----------------------------------
+
+\doublespacing
+
+\begin{document}
+
+\includepdf{capstoneTitle}
+\includepdf{declaration_and_consent_capstone_signed}
+
+\maketitle
+\thispagestyle{fancy}
+
+%-----------EDIT FROM HERE
+
+\begin{quote}
+\textit{Using a country and year fixed effects model, I examine the effects of covert US interventions to install or support a foreign regime on within-country economic inequality over time. I find that successful interventions at regime change are associated with increases in measures of the Gini coefficient and top ten percent share of income or consumption, and this effect lasts up to 25 years following the intervention.}
+\end{quote}
+
+\tableofcontents{}
+
+\section*{Acknowledgements}
+\par{As much as this project has been self-directed, I am far from what the economics textbooks might call an independent, rational, and self-interested actor. Rather, I am made up of all those who have supported and nurtured me along the way. You could call me a community-made, emotional, and collective-interested actor.}
+\par{This project has been a significant challenge to overcome, in no small part because at times I felt the need to drift away from all those who have supported me for so long in order to get done what needs getting done. The inner voice that I could never produce anything of value was particularly challenging to overcome.}
+\par{The process was non-linear and often rocky, and I deeply appreciate everyone who quietly cheered me on and let me know that they were always there if I needed any help. While this paper is a mere slice in space and time, you all are what constitute life and what it means to \emph{live}. Thank you, in particular, to Claire, Scott, Tomas, Sam, Atharv, Manraaj, Sanat, and my family in (the suburbs of) Chicago and Kharkiv for being my bedrock of care and support, and for believing in me. Thank you, thank you, thank you.}
+
+%%%%%%%%%%%%%%%% INTRO %%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+\par{Inequality has been the subject of much political, economic, and moral concern, and with recent improvements in data collection capability, economic inequality and its causes can be studied with more accuracy. In the words of Atkinston, ``if we are concerned about equality of opportunity tomorrow, we need to be concerned about inequality of outcome today." Recent studies have focused on the impact of finance on inequality \citep{de2017finance}, while others have focused on more macro-level factors that drive inequality such as education, technology, tax policy, and social norms regarding equality \citet{piketty2014inequality}.}
+\par{A particularly important relationship is that of economic growth and inequality. While the popular mantra ``Growing the Pie" implies more growth means more for everyone, \citet{ravallion2004pro} found that improvements in poverty respond slower to economic growth when income inequality is high. In the other direction, the OECD has found that increasing income inequality has impeded economic growth, with high-inequality countries exhibiting low levels of social mobility due to limited access of the poor to quality education \citep{oecd2015together}.}
+\par{The United States and its foreign policy have also been a matter of popular debate and scrutiny, particularly following its regular involvement in regime change during and after the Cold War. However, classification of CIA (Central Intelligence Agency) documents have often been an impediment to studying the effects of covert CIA interventions. Cold War documents, though, have now been mostly declassified, and \citet{berger2013superpower} created a time series cross sectional dataset that allows for the examination of the effects of successful US covert interventions to install or support a regime on any outcome variable of interest. This variable will be further discussed in the Data section; however, it is important to note that it encodes only \emph{successful} interventions in regime change or support, which is an essential aspect of both \citet{berger2013superpower}, \citet{berger2013commercial}, and my own mechanism.}
+\par{I am interested in answering the question of whether US interventions and influence over a regime have an effect on economic inequality, and if so, what is the duration and magnitude of this effect?}
+\par{My particular concern is with the long-run outcomes of income inequality in the aftermath of US interventions rather than the causes or goals of the interventions, however, the drivers of US interventions are of interest insofar as they introduce potential sources of endogeneity (or instruments). \citet{mullenbach2008deciding} find that several factors that significantly drive the likelihood of a US intervention, including geographic proximity, ethnic linkage (i.e., if there exists an ethnic group in the US that aligns with a minority ethnic group in the target country), humanitarian linkage (i.e., if there are many civilian fatalities or displaced civilians), and democracy. While I control for democracy in my analysis, the other variables are not included because they have no apparent effect on \emph{covert} CIA interventions as well as long-run inequality outcomes. As for domestic variables that could potentially serve as instruments, \citet{mullenbach2008deciding} find no evidence for any domestic factors consistently significantly driving the likelihood of US interventions. \citet{aubone2013explaining} summarizes much of the literature regarding drivers of US interventions and finds that the US has a lower likelihood of intervention when the target country has greater resource wealth and economic development. This introduces a potential source of selection bias which I address through both a log GDP per capita control variable and country and year fixed effects. In addition, as there may be certain time- and country-covarying omitted factors, I include a lagged dependent variable to control for pre-trends in inequality.}
+\par{The question of US interventions and its effect on economic outcomes is particularly interesting in its ability to answer to what extent an outside great power can influence a regime, its policies, institutions, and real long-run social and economic dynamics.}
+
+
+
+
+%%%%%%%%%%%%%%%% LIT REVIEW %%%%%%%%%%%%%%%%%%%%
+\section{Related literature}
+
+\par{This paper is most closely related to \citet{berger2013superpower} and \citet{berger2013commercial}, evaluating the effects of covert CIA interventions on outcomes in the target foreign countries. Those two papers found, respectively, that covert CIA interventions are associated with a significant decline in democracy and a larger share of imports from the US relative to total exports. In the same vein of US imperialism, a large body of literature has been written on the institutional and conflict-related effects of US interventions and aid \citep{nunn2014us} \citep{dube2015bases}\citep{magesan2018out}.}
+
+\par{Older literature that has studied the effects of US military interventions on democracy have found no effect \citep{meernik1996united}, a positive effect \citep{hermann1998us}, or a positive effect when the intervention supports ``free and fair" elections \citep{peceny1999forcing}. While these papers included some controls, they suffered from a lack of available data and sufficient control variables. This is evident in the further research done on the topic, such as by \citet{bueno2006intervention} that found evidence of a decline in democracy after third-party military interventions. The mechanism through which this occurred, they argue, is via a conflict of interest between the intervening country and the target state. As \citet{dumenil2004economics} argue, unlike colonialism, US imperialism does not imply domination over another country; rather, what is essential is that the foreign government is economically favorable to the US. Then, the mechanism that \citeauthor{bueno2006intervention} propose is that the intervening state, driven by these economic incentives, prefers a foreign government that provides more private goods, and those foreign governments tend to be more autocratic. More democratic governments, on the contrary, need larger winning coalitions among their people to retain power and hence generally need to provide more public goods to remain popular. The relevance of this mechanism to my own is that the US tends to favor foreign governments that are economically favorable and more open to trade, meaning less likely to provide public goods and tax progressively, resulting in greater income inequality.}
+
+\par{\citet{hendrix2018cold} examined US and Soviet imperialism during the Cold War, finding a mechanism whereby foreign governments, particularly authoritarian ones, had large amounts of unearned revenue from their imperial power during the Cold War. Pressures from the US to democratize using threats to withdraw this revenue fell flat as countries knew the US feared the rise of communism far more than it valued democracy \citep{dunning2004conditioning}. Once the Cold War ended, much of this revenue was withdrawn, and \citeauthor{hendrix2018cold} found resource-poor countries experienced a shock to their power and repressive capacities, facing greater pressures to democratize, while resource-rich countries were more able to maintain their power and autocracy. This serves as a possible explanation for the long-run persistence of inequality in target countries even after the end of the Cold War.}
+
+\par{\citet{aidt2011political} discuss incentives to intervene, in particular noting that countries will often support coups, dictatorships, and autocracies if it protects their foreign investments, and this incentive is even greater when the profitability of the foreign investment and income inequality in the target country are high. This finding ties in with the economic theory of imperialism described by \citet{hauner2017inequality} whereby high inequality begets a large amount of foreign assets (as a share of GDP) which leads to increased militarization to protect those assets. More literature on foreign capital dependence has found many other adverse effects, including long-term negative effects on per capita GDP \citep{kentor1998long}, as well as deepened class divides, more profits sent overseas, and a diminished bargaining power of local workers \citep{bornschier1979income}. \citet{alderson1999income} find evidence for a link between foreign capital dependence and increased income inequality. \citet{kentor2001long} corroborates this result with further robustness checks, looking at the decadal change in income inequality and finding substantively similar results.  All of these results point to the importance of foreign capital dependence on long-run economic outcomes.}
+
+\par{Also relevant to this paper are other drivers of inequality and what inequality, in turn, drives. The literature on the relationship between economic growth and inequality is split, with some finding that higher inequality leads to a greater likelihood of redistributive policies and hence has a negative effect on growth \citep{alesina1996income} and still others finding that higher inequality leads to increased fertility among poorer classes and decreased feritility among the wealth and hence slower growth \citep{khoo1999income}. \citet{engerman2002factor} found that many of the inequality outcomes in the Americas were strongly associated with initial factor endowments, including climate and soil conditions as well as the concentration of Native Americans, and the policies and insitutions that developed institutionalized and perpetuated these initial endowments. In the same vein, \citet{de2007inequality} investigated Latin American inequality and poverty outcomes and found that the initial distribution of land plays a key role in the concentration of capital. \citet{acemoglu2002reversal} argued that one-third of income inequality across the world can be explained by the effects of European colonialism on different societies, after controlling for other alternative explanations including geography, religion, identity of colonial power, and ethnicity, after which results remained robust. \citet{easterly2007inequality} found a mechanism through which inequality hindered economic growth via diminished formal schooling and quality institutions. These results complicate the real drivers of inequality while also providing strong arguments for its relevance to several important social and economic factors. The theory behind the drivers of inequality provides several alternative mechanisms and outcomes, and the main contribution my study can make is through my long time period, recent inequality data, and novel explanatory variable to the study of inequality.}
+
+\par{Beyond historical drivers of inequality, \citet{roine2009long} found not only that periods of high economic growth in the 20th century were associated with greater top income percentile concentrations, but also that government spending is associated with increases in income shares of the bottom nine deciles while tax progressivity reduced top income shares. This would seem natural, but there are studies that have argued that higher taxes or greater tax progressivity is associated with decreases in effort and hence increases in inequality \citep{atkinson2004income}. In addition, \citeauthor{roine2009long} found that financial development and trade openness in foreign countries benefited political elites and insiders disproportionately. \citet{de2017finance} similarly found that financial development and liberalization drive higher income inequality, with any improvements in financial services leading to little or no increased uptake in use. These results tie together with the literature on foreign capital dependence described above, which all strongly point toward the connection between financial development and inequality.}
+
+\par{Hence, my study contributes both to the literature on the US imperialism, particularly in the realm of covert CIA interventions during the Cold War, and its effects as well as to the literature on the drivers of inequality. No study to my knowledge has examined this explicit connection.} 
+
+
+
+
+%%%%%%%%%%%%%%% MECHANISM %%%%%%%%%%%%%%%%%%%
+\section{Mechanism}
+\par{Following from the previous section, the mechanism through which I argue US imperialism affects long-run economic inequality is via institutional and policy change. Namely, \citet{berger2013commercial} found an increase in the share of US imports to total exports following a successful CIA regime-change (or support) intervention, and the mechanism through which they argued this occurred is via increased US influence over foreign leaders, which led to more imports particularly through government purchases. As US imperialism is characterized by the import and export of capital \citep{dumenil2004economics}, I argue that following a US intervention, imports from the US increase, more capital flows to the political elite, and as a result, power is consolidated via political institutions. Then, with increased foreign capital dependence and a government more amicable to US economic interests, the military grows to protect those assets \citep{hauner2017inequality} and government spending and taxes decline to accommodate and incentivize economic growth and privatization. As the policies are institutionalized, they persist over time, and as \citet{atkinson2015inequality} argues, policies are intrinsically and historically connected with inequality.}
+\par{While delving into the details of all of the interventions to find evidence of this mechanism is beyond the scope of this study, there are numerous examples of foreign government policy changing following a CIA intervention, including in Brazil, Guyana, Chile, Guatemala, and Bolivia \citep{lowenthal1976united} \citep{aidt2011political}, to name a few.}
+
+
+
+
+
+%%%%%%%%%%%%%%%% DATA %%%%%%%%%%%%%%%%%%%%
+\section{Data}
+
+\par{The data used for inequality are the \citet{unuwider} World Income Inequality Database, which is a comprehensive dataset of income inequality measures covering 200 countries with years up to 2019, for a total of 20792 distinct country-year observations. For the purposes of my analysis, I have made a few decisions with the inequality data in order for the measures of interest to capture a more consistent outcome variable. I restricted the population cover to only observations that covered the entire country's population, which dropped one country and 1210 total observations. As for the resource concept, I have decided against limiting observations to just net income, which considers taxes and government transfers in its calcuation, as the total observations drop to less than a third of the original dataset, with far fewer countries and less observable variation over time. There are theoretical limitations to this approach, particularly in being able to distinguish what effect was due to government spending as opposed to higher wages; however, I find that capturing a more accurate long-run trend in inequality covering more countries that experienced interventions is more useful for the purposes of my study.}
+\par{Besides dropping fewer than 200 observations for which the quality is ``not known" according to WIID (i.e., there is insufficient information or documentation on the income and survey component), the only other restriction I imposed on the inequality dataset was for each country to have at least five distinct country-year observations so that sufficient variation over time can be captured. This restriction drops 60 countries, leaving 139. Imposing a higher bar than five results in very little remaining data, particularly among countries that have experienced some of the most US interventions. Similarly, restricting by area cover, scale (i.e., per capita, equivalized, or no adjustment), or sharing unit all have the undesired effect of eliminating large swaths of data for particular countries that, for example, consistently measured inequality but only in a particular area, such as the Buenos Aires urban area for Argentina.}
+\par{For country-year pairs that had multiple observations, I have taken the median of the variables of interest, which are the Gini coefficient and the tenth decile (top ten percent share of income or consumption). The choice of using the Gini coefficient follows most previous studies on inequality \citep{de2017finance}. The tenth decile tends to move along the same trend as the Gini coefficient, but it has the advantage of capturing significant concentrations of income or consumption that may go unnoticed by the Gini coefficient, which can be offset by increased equality among the bottom 90 percent. For robustness, I also evaluate the bottom 40 percent and Palma ratio (ratio of top 10 percent to bottom 40 percent share), the results of which are available upon request. As for taking the median, there are other documented methods of smoothing inequality measures, such as taking five-year averages. I have chosen to use the median as it omits outliers and, given my model design that looks at lagged effects of inequality at each year interval, any significant breaks in a trend will be noticeable outliers and can be ignored.}
+\par{The data for US interventions are taken from the dataset compiled by \citet{berger2013commercial}. Encoded is a binary variable, by country and by year for 166 countries from 1947 to 1989, which equals one when the US CIA successfully either installed a foreign leader or covertly supported a regime in a given country and year, and zero as soon as support is withdrawn or a new leader is elected. This variable, $I_{t,c}$, provides a source of variation from which US influence over a country can be interpreted. Provided in the original papers \citep{berger2013commercial} and its appendix are also summary statistics and world maps of this variable. A natural limitation of this data is that it is binary, while CIA interventions to install or support leaders are evidently not, as they ranged from propaganda campaigns via various media channels to covert paramilitary operations, assassinations, and coups. Further research can expand upon these limitations by including more recent years and creating a composite measure of US influence based on various input factors, such as the type of intervention and amount of resources used.}
+\par{Figures 1 and 2 below show the distribution of the $I_{t,c}$ variable by country and by year, respectively.}
+
+\begin{figure}[ht]
+\input{Figure1.tex}
+\caption{US influence by country}
+\end{figure}
+
+\begin{figure}[ht]
+\input{Figure2.tex}
+\caption{US influence by year}
+\end{figure}
+
+
+\par{As noted in the \citet{berger2013superpower}, the variable encoded is specifically for covert CIA interventions, hence its motivation is not subject to public opinion. This nicely removes at least one source of endogeneity in my estimating equations. Another important aspect of this variable is that, as \citet{berger2013superpower} argue, it measures ``client states" or ``puppet leaders"---in particular, whether or not the US has close ties with the foreign government in a particular country and year. This aspect of the variable provides the crux of my mechanism, through which the US could influence both the political elite and the policies of foreign governments---in particular, those that work in favor of US, the foreign government, and US and foreign business economic interests while coming at the expense of other priorities such as public provisions.}
+\par{The data from which the controls for democracy, economic left-right policy, welfare policy, and union membership are from the Varieties of Democracy (V-Dem) \citep{vdem} Project, version 11, with the latter two measures coming from the Varieties of Party Identity and Organisation (V-Party) \citep{vparty} dataset. The inclusion of democracy as a control is natural as it is expected to affect both the US decision to intervene \citep{mullenbach2008deciding} and income inequality via the mechanism proposed by \citet{bueno2006intervention} whereby more democratic governments require larger winning coalitions to stay in power and as a result must provide more public goods to retain a large coalition. In the V-Dem dataset, several measures of democracy are presented, including electoral, liberal, participatory, and deliberative, however, as noted in the V-Dem Codebook \citep{coppedge2021v}, electoral democracy is an essential aspect of all the other measures, as it captures the extent to which elections are clean, fair, and open to the entire population. Hence, I have chosen to use electoral democracy.}
+\par{As for the economic left-right control variable, which as described in the V-Party Codebook \citep{luhrmann2020v} essentially captures the extent to which a political party favors increased government spending, regulation, and taxes as opposed to less spending, privatization, and lower taxes. It is coded as a sliding scale centered at zero where more negative values means more left and more positive means more right. The welfare variable more specifically captures whether or not the party supports universal welfare or means-tested welfare, where more negative values means more means-tested or no welfare policy and more positive values means more universal welfare policies. As both of these variables are by political party and not by country, I weigh the variables for each party by the share of seats that party held in government, then summed the variables for each country-year pair to get the average of the government's position on these policies. The limitations of this methodology include that the system of government may lend itself to majority rule, in which case weighing the minority parties by seat share may overestimate their real influence on government policy. Further research may expand upon this limitation, but for the purposes of my study, I find these metrics a useful control when considering income inequality. Finally, the share of the population involved in independent trade unions variable is measured such that more positive values indicate a larger share of the population involved, and this variable is relevant in its relationship to wages via collective bargaining on the part of the union, which in turn is likely to affect measures of income inequality.}
+\par{The data for per capita GDP comes from the Maddison Project Database, version 2020 \citep{maddison}, and I use log GDP per capita as per \citet{berger2013superpower}. Table 1 below shows the summary statistics for each of the dependent, explanatory, and control variables.}
+
+\input{SummaryStats.tex}
+
+
+
+% FIGURE 1: US INTVNS BY YEAR
+% FIGURE 2: US INTVNS BY COUNTRY
+
+%%%%%%%%%%%%%%%% EQUATIONS & METHODS %%%%%%%%%%%%%%%%%%%%
+\section{Estimating equations and methods}
+\par{As I am interested in the within-country relationship between US influence and income inequality, I estimate the following equation}
+\begin{equation}
+	Y_{c,t} = \alpha y_{c,t-1} + \beta I_{c,t} + \gamma X{c,t} + \mu_c + \mu_t + \varepsilon_{c,t}
+\end{equation}
+with $c$ indexing the variables by country and $t$ indexing by year for the period 1947-2019. $Y_{c,t}$ captures the dependent variables of interest, which are the measures of inequality that include the Gini coefficient and top ten percent share of income or consumption. The explanatory variables include a lagged dependent variable, $y_{c,t-1}$, which is included to control for persistence in income inequality. If the coefficient on this variable is positive, it means the magnitude of the effects of the other explanatory variables, in particular US influence, is greater. If this coefficient is negative, it would imply a tendency of inequality to revert to its mean between years, implying a diminished effect of US influence. However, the use of a lagged dependent variable, known as a dynamic panel model, introduces a potential source of bias, called Nickell bias, where the lagged dependent variable is correlated with the error term via the fixed-effects demeaning process. Following \citet{berger2013superpower}, I claim my sample is not subject to Nickell bias due to a sufficiently large $T$, or time frame.
+\par{The explanatory variables are US influence, or $I_{c,t}$, the control variables grouped in $X_{c,t}$, and the country and year fixed effects variables, $\mu_c$ and $\mu_t$, which control for omitted variables for each given country and year.}
+
+
+
+
+
+%%%%%%%%%%%%%%%% RESULTS & DISCUSSION %%%%%%%%%%%%%%%%%%%%
+\section{Results}
+
+\par{The results for the effect of US influence on the Gini coefficient are shown in Table 2 below. The estimating equation is as described above, with country and year fixed effects included in all regressions in addition to the Gini coefficient lagged by one year, electoral democracy, union membership, and log GDP per capita as controls. Other controls, namely economic left-right scale and welfare policy, have not been included in Table 2 due to their  small number of observations which signficantly reduced the $N$ for the regressions. The explanatory variable of interest, $I_{t,c}$, is lagged an additional year in each consecutive regression, from a one-year lag to a 30-year lag. This accounts for the expected delay in effects on measures of inequality, as each regression shows the average effect of US influence on inequality $t$-years after a CIA intervention to install or support a regime.}
+\par{The results for the effect on the Gini coefficient support my hypothesis, as every coefficient for lagged US influence is positive and statistically significant for each of the first 25 years, after which it remains positive but insignficiant. The interpretation of this coefficient ($\beta$) is that if a country experienced a covert CIA intervention in a particular year, then the Gini coefficient is expected to rise by $\beta$ in that country $t$ years later where $t$ is equal to the year lag on US influence. Contrary to \citet{berger2013superpower}, which studied the effects of US influence on long-run democracy and found significant effects within a decade of the end of an intervention but a decay in effects to insignificance in the long-run, my results suggest a significant and persistent effect of US influence on inequality.}
+
+\input{Reg1a.tex}
+\input{Reg1b.tex}
+\input{Reg1c.tex}
+\input{Reg1d.tex}
+\input{Reg1e.tex}
+
+\par{Table 3 shows the same effect as Table 2 but with the top ten share of income/consumption as the dependent variable. I omitted the economic left-right variable and the welfare policy variable for the same reasons as in Table 2, as their inclusion results in fewer than one-fifth the observations. The results show the same general trend as Table 2, with US influence positive and significant after a one- and two-year lag and from a seven-year lag through a 26-year lag. The interpretation of this coefficient ($\beta$) is that if a country experienced a covert CIA intervention in a particular year, its top ten percent share of either income or consumption is expected to rise by $\beta$ percent $t$ years later, $t$ being the year lag on US influence. The long-run effect of US influence on inequality continues to contradict the prediction made by \citet{berger2013superpower} that effects wear off after a long enough period. This suggests that there is a difference in the dynamics of inequality versus that of political institutions such as democracy, namely, that the former persists in spite of institutional change.}
+
+\input{Reg2a.tex}
+\input{Reg2b.tex}
+\input{Reg2c.tex}
+\input{Reg2d.tex}
+\input{Reg2e.tex}
+
+
+%%%%%%%%%%%%%%%% CONCLUSION %%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+
+\par{My results suggest that US influence via regimes has a positive, significant, and long-run effect on economic inequality. Following evidence from \citet{berger2013commercial} that the US had closer ties with the target government, the mechanism through which this likely occurs is via both institutions and capital flows, which in turn exacerbate one another. In short, political elites consolidate their power, regimes become less democratic, as shown in \citet{berger2013superpower}, and policy decisions become skewed in favor of US economic interests.}
+\par{There are several limitations to my study. For one, it is not an air-tight causal model, and even though country and year fixed effects with a few additional controls produces relevant results, there are other sources of potential bias due to omitted variables that further research could consider. In addition, as noted in the Data section, the covert CIA intervention variable is binary and only covers the duration of the Cold War. Further research can expand upon this by creating a continuous variable for US influence based on the type of intervention and amount of resources invested, among other factors. Another aspect of analysis that can be expanded upon is the resource metric used for inequality, as a drawback of my study using income and consumption data is that I cannot be as precise with the mechanism through which US influence (or any explanatory variable of interest) affects inequality without narrowing this resource concept. Further, I have left the majority of historical and cultural details out of my study due to its large-$N$ nature. However, examining what conditions predated US interventions and what exactly changed following a regime-change intervention for particular countries would be another fruitful avenue of further research that would complement my study.}
+\par{Finally, to end on a more hopeful note, how might we begin addressing the issue of inequality? While this is beyond the scope of my study, I can point to a few resources that begin to address the question: \citep{fourie2016book} \citep{oecd2015together} \citep{assouad2018extreme}.}
+
+
+
+
+
+%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%
+
+\bibliographystyle{te}
+\bibliography{cap}
+
+
+
+
+
+\end{document}
