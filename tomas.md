@@ -1,3 +1,7 @@
+---
+title: tomas
+---
+
 ## what tomas would like to get done this afternoon
 
 * [ ] Read Spengler
